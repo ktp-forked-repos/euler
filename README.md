@@ -1,4 +1,4 @@
-This is a repo to store my solutions to Project Euler problems. I've been working
+This is a repo to store my solutions to [Project Euler](https://projecteuler.net/about) problems. I've been working
 through them in order for a while, whenever I get the chance and I'm feeling
 bored.
 
