@@ -41,8 +41,7 @@ public class Problem074 {
 
             for (int j = 0; j < 60; j++) {
                 if (chain.size() != j + 1) break;
-                int sum = 0;
-                for (int digit : splitIntoDigits(previous)) sum += factorial[digit];
+                int sum = getFactorialSum(previous);
                 chain.add(sum);
                 previous = sum;
             }
@@ -59,22 +58,12 @@ public class Problem074 {
         System.out.println("Completed in: " + duration + "ms");
     }
 
-    private static int[] splitIntoDigits(int n) {
-        int numLength = numLength(n);
-        int[] digits = new int[numLength];
-        for (int i = 0; i < numLength; i++) {
-            digits[i] = n % 10;
+    private static int getFactorialSum(int n) {
+        int sum = 0;
+        while (n > 0) {
+            sum += factorial[n % 10];
             n /= 10;
         }
-
-        return digits;
-    }
-
-    static int numLength(int n) {
-        if (n == 0) return 1;
-        n = Math.abs(n);
-        int l;
-        for (l = 0; n > 0; l++) n /= 10;
-        return l;
+        return sum;
     }
 }
