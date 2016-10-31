@@ -19,16 +19,13 @@ import java.util.HashMap;
  */
 public class Problem076 {
 
-    static HashMap<Integer, HashMap<Integer, Integer>> lookup;
+    static long[][] lookup;
 
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
 
         int n = 100;
-        lookup = new HashMap<>();
-        for (int i = 0; i <= n; i++) {
-            lookup.put(i, new HashMap<>());
-        }
+        lookup = new long[n + 1][n + 1];
         System.out.println(p(n, n) - 1);
 
 
@@ -38,12 +35,7 @@ public class Problem076 {
     }
 
 
-    private static int p(int n, int m) {
-
-        if (lookup.get(n) != null && lookup.get(n).get(m) != null) {
-            return lookup.get(n).get(m);
-        }
-
+    private static long p(int n, int m) {
         if (m == 0 || n < 0) {
             return 0;
         }
@@ -52,15 +44,19 @@ public class Problem076 {
             return 1;
         }
 
+        if (lookup[n][m] != 0) {
+            return lookup[n][m];
+        }
+
         if (n == m) {
-            int result = 1 + p(n, m - 1);
-            lookup.get(n).put(m, result);
+            long result = 1 + p(n, m - 1);
+            lookup[n][m] = result;
             return result;
         }
 
-        int result = p(n, m - 1) + p(n - m, m);
+        long result = p(n, m - 1) + p(n - m, m);
 
-        lookup.get(n).put(m, result);
+        lookup[n][m] = result;
         return result;
     }
 
