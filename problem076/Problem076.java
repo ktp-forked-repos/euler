@@ -1,8 +1,6 @@
 package problem076;
 
 
-import java.util.HashMap;
-
 /**
  * Created by kiran on 10/31/16.
  *
@@ -26,7 +24,7 @@ public class Problem076 {
 
         int n = 100;
         lookup = new long[n + 1][n + 1];
-        System.out.println(p(n, n) - 1);
+        System.out.println(partitions(n, n) - 1);
 
 
         long endTime = System.currentTimeMillis();
@@ -35,7 +33,7 @@ public class Problem076 {
     }
 
 
-    private static long p(int n, int m) {
+    private static long partitions(int n, int m) {
         if (m == 0 || n < 0) {
             return 0;
         }
@@ -49,12 +47,12 @@ public class Problem076 {
         }
 
         if (n == m) {
-            long result = 1 + p(n, m - 1);
+            long result = 1 + partitions(n, m - 1);
             lookup[n][m] = result;
             return result;
         }
 
-        long result = p(n, m - 1) + p(n - m, m);
+        long result = partitions(n, m - 1) + partitions(n - m, m);
 
         lookup[n][m] = result;
         return result;
