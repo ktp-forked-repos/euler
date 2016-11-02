@@ -67,6 +67,5 @@ public class Problem078 {
 
         return sum;
     }
-
-
 }
+// Answer: 55374
