@@ -20,7 +20,7 @@ import java.util.BitSet;
 public class Problem077 {
 
     static ArrayList<Integer> primes = primeSieve(1_000);
-    static int[][] memo = new int[1000][1000];
+    static int[][] memo = new int[1_000][1_000];
 
     public static void main(String[] args) {
 
