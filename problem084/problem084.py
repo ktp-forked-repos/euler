@@ -32,10 +32,10 @@ for x in chance_arr:
     chance.put(x)
 
 
-ches_arr = [go, jail] + [STAY] * 14
-random.shuffle(ches_arr)
+chest_arr = [go, jail] + [STAY] * 14
+random.shuffle(chest_arr)
 chest = Queue()
-for x in ches_arr:
+for x in chest_arr:
     chest.put(x)
 
 position = 0
@@ -49,8 +49,9 @@ for i in range(1000000):
     else:
         consec_doubles = 0
 
-    if consec_doubles >= 3:
+    if consec_doubles == 3:
         position = jail
+        consec_doubles = 0
     else:
         position = (position + die1 + die2) % 40
 
