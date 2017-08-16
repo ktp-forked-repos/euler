@@ -60,3 +60,5 @@ print(sum(set(min_prod_sum.values())))
 
 stop = timeit.default_timer()
 print('Runtime:', stop - start)
+
+# Answer: 7587457
